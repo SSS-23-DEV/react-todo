@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import tasksApi from "@/shared/api/tasks/index.js";
+import tasksAPI from "@/shared/api/tasks";
 
 const TaskPage = (props) => {
-
-    const {params} = props;
-
+    const { params } = props;
     const taskId = params.id;
 
     const [task, setTask] = useState(null);
@@ -12,7 +10,7 @@ const TaskPage = (props) => {
     const [hasError, setHasError] = useState(false);
     
     useEffect(() => {
-        tasksApi.getById(taskId)
+        tasksAPI.getById(taskId)
         .then((taskData) => {
             setTask(taskData)
             setHasError(false)

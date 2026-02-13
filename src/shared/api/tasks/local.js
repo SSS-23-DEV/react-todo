@@ -3,7 +3,6 @@ const STORAGE_KEY = 'tasks'
 const read = () => {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-  // eslint-disable-next-line no-unused-vars
   } catch (error) {
     return []
   }
@@ -52,7 +51,7 @@ const localAPI = {
     write(tasks)
   },
 
-  deleteAll: async () => {
+  deleteAll: async (tasks) => {
     await delay()
 
     write([])
@@ -70,4 +69,4 @@ const localAPI = {
   },
 }
 
-export default localAPI;
+export default localAPI
